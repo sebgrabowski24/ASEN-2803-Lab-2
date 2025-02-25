@@ -1,4 +1,4 @@
-function [DataParsed] = LCSDATA(Data)
+function [theta_exp, w_exp, v_exp, time, DataStruct] = LCSDATA(Data)
 tolerance = 1;                                      % The ammount away from 0 we can expect the
                                                     % min postion to be within 
 
@@ -14,6 +14,18 @@ Data = Data(MinIndex2 : end, :);                    % Remove all of the rows abo
 Data = Data(1:MaxIndex, :);                         % Remove all data after the 6 revs
 Data.Var1 = Data.Var1 - Data.Var1(1);               % Change time so it starts at 0
 
-DataParsed = Data;                                  % Assign to return variable
+
+theta_exp = Data.Var2;                              % Assign to return variables
+w_exp = Data.Var4;
+v_exp = Data.Var5;
+time = Data.Var1;
+
+DataStruct.time = time;
+DataStruct.v_exp = v_exp;
+DataStruct.w_exp = w_exp;
+DataStruct.theta_exp = theta_exp;
+
+
+
 
 end

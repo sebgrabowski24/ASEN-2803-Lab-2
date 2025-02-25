@@ -19,12 +19,9 @@ close all
 
 %% Get all Data Files Cleaned
 
-[~, ~, ~, ~, Data_10pt5V] = LCSDATA(readtable("Data Files/Test1_10pt5V"));
-[~, ~, ~, ~, Data_9pt5V] = LCSDATA(readtable("Data Files/Test1_9pt5V"));
-[~, ~, ~, ~, Data_8pt5V] = LCSDATA(readtable("Data Files/Test1_8pt5V"));
-[~, ~, ~, ~, Data_7pt5V] = LCSDATA(readtable("Data Files/Test1_7pt5V"));
-[~, ~, ~, ~, Data_6pt5V] = LCSDATA(readtable("Data Files/Test1_6pt5V"));
+for i = 1:5
+
+    [~, ~, ~, ~, Data_(i+5)] = LCSDATA(readtable("Assignment-Files/))
 
 
-%% Plot
-
+end
