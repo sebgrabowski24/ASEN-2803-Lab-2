@@ -18,3 +18,9 @@ close all
 
 
 
+data = readtable("Data Files/Test1_7pt5V");
+
+DataNew = LCSDATA(data);
+
+
+
