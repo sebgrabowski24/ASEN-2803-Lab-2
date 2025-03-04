@@ -38,13 +38,17 @@ for i = 1:6
     plot(Datas(i).theta_exp, Datas(i).v_exp, 'DisplayName', sprintf('Experiment Measured %.1f Volts', LineName), LineWidth=1.5);
 
     xlim([-50 2180])
+<<<<<<< Updated upstream
     ylim([-1650 2600])
+=======
+>>>>>>> Stashed changes
     legend show 
     xlabel('Theta (deg)')
     ylabel('Velocity (cm/s)')
     hold off
 
 end
+<<<<<<< Updated upstream
 
 
 %% Calculate and plot our model's velocity vs theta
@@ -78,3 +82,30 @@ dat = LCSMODEL(7.5, 26, 15.5, theta, 1000);
 
 
 
+=======
+
+
+%% Calculate and plot our model's velocity vs theta
+
+for i = 1:6
+    omega = mean(Datas(i).w_exp);
+    theta =  abs(Datas(i).theta_exp);
+    
+    model_v{i} = LCSMODEL(7.5, 26, 15.5, theta, omega);
+
+
+    LineName = 4.5 + i; % Figure name
+    figure(i) % Specify figure to add to
+    hold on
+
+    plot(Datas(i).theta_exp, model_v{i}, 'DisplayName', sprintf('Model Calculated For %.1f Volts', LineName), LineWidth=1.5);
+
+    xlim([-50 2180])
+    % ylim([])
+    legend show 
+    xlabel('Theta (deg)')
+    ylabel('Velocity (cm/s)')
+    hold off
+
+end
+>>>>>>> Stashed changes

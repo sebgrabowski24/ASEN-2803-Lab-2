@@ -9,11 +9,15 @@ function [v_mod]=LCSMODEL(r,d,l,theta,w)
 
   %Outputs
     % v_mod [mm/s] 
-
+    w = w * (pi / 180);
 %% Beta Calculations
     % found by solving for the x position in terms of r, d, and theta and then
     % in terms of l and beta and solving for beta
+<<<<<<< Updated upstream
     beta=asind((d-sind(theta))./l);
+=======
+    beta=asind( (d - r .* sind(theta)) ./ l);
+>>>>>>> Stashed changes
 
 %% V_a Calculations
     % calculated using the V_A= V_O + W x R_AO equation where V_O is zero
