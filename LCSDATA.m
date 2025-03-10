@@ -1,9 +1,9 @@
 function [theta_exp, w_exp, v_exp, time, DataStruct] = LCSDATA(Data)
-tolerance = 1;                                      % The ammount away from 0 we can expect the
+tolerance = 6;                                      % The ammount away from 0 we can expect the
                                                     % min postion to be within 
 
 
-MinIndex = find(Data.Var3 < tolerance, 2);          % Find the min postion(Withing the tolerance)
+MinIndex = find( Data.Var3 < tolerance,2);          % Find the min postion(Withing the tolerance)
 SubtractAmmount = Data.Var2(MinIndex(2)) - 152.5;   % Find the ammount to subtract from the angle that would result in the min postion being 152.5
 Data.Var2 = Data.Var2 - SubtractAmmount;            % Subtract said ammount from all of the angle data
 MinIndex2 = find(abs(Data.Var2) == ...              % Find the value closest to zero of the new angle data
@@ -21,9 +21,9 @@ v_exp = Data.Var5;
 time = Data.Var1;
 
 DataStruct.time = time;
-DataStruct.v_exp = v_exp;
-DataStruct.w_exp = w_exp;
-DataStruct.theta_exp = theta_exp;
+DataStruct.v_exp = v_exp/10;                        % convert to cm/s 
+DataStruct.w_exp = w_exp;                           % deg/s
+DataStruct.theta_exp = theta_exp;                   % deg
 
 
 
